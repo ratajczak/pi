@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 
-puppet_base='./'
-to_provision='./manifests/pi.pp'
+puppet_base='./puppet/'
+to_provision='./puppet/manifests/pi.pp'
 
 sudo apt-get update
 sudo apt-get install puppet-common
