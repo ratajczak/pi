@@ -1,10 +1,8 @@
 #!/bin/bash
 set -e
 
-wget https://apt.puppetlabs.com/puppetlabs-release-wheezy.deb;
-sudo dpkg -i puppetlabs-release-wheezy.deb;
 sudo apt-get update;
-sudo apt-get install puppet;
+sudo apt-get install puppet-common;
 sudo apt-get install git;
 
 git clone http://github.com/ratajczak/pi.git ~/puppet 
