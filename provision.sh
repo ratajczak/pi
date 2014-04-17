@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-puppet_base='~/puppet/'
+puppet_base='~/puppet'
 to_provision='~/puppet/manifests/pi.pp'
 
 #sudo apt-get update
