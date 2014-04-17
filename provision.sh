@@ -4,7 +4,7 @@ set -e
 puppet_base='./puppet/'
 to_provision='./puppet/manifests/pi.pp'
 
-sudo apt-get update
+#sudo apt-get update
 sudo apt-get install puppet-common
 sudo apt-get install git
 
