@@ -6,7 +6,8 @@ sudo apt-get install puppet-common;
 sudo apt-get install git;
 
 git clone http://github.com/ratajczak/pi.git ~/puppet 
-puppet module install adrien-network;
+mkdir ${puppet_base}/modules;
+puppet module install adrien-network --modulepath=${puppet_base}/modules --version=0.4.1;
 
 puppet_base='./'
 to_provision='./manifests/pi.pp'
