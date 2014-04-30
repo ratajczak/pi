@@ -1,6 +1,5 @@
 node raspberrypi {
 
-
   file {'/home/pi/.ssh':
     ensure            =>  directory,
     owner             =>  'pi',
@@ -50,4 +49,39 @@ node raspberrypi {
     enable  => true, 
   }
 
+  exec { 'add_minidlna_media_path':
+    command => 'echo media_dir=/var/samba >> /etc/minidlna.conf',
+    path    => '/usr/local/bin/:/bin/',
+    require => Package['minidlna'],
+    unless => 'grep media_dir=/var/samba /etc/minidlna.conf',
+  }
+
+  file {'/var/samba':
+    ensure            =>  directory,
+    mode              =>  '0777',
+  }
+
+  class { '::samba::server':
+    workgroup            => 'HOME',
+    server_string        => 'Raspberry Pi',
+    netbios_name         => 'Raspberry',
+    local_master         => 'yes',
+    map_to_guest         => 'bad user',
+    preferred_master     => 'yes',
+    shares => {
+      'homes' => [
+        'comment = Home Directories',
+        'browseable = no',
+        'writable = yes',
+      ],
+      'public' => [
+        'comment = Public share',
+        'path = /var/samba',
+        'browseable = yes',
+        'writable = yes',
+        'guest ok = yes',
+        'available = yes',
+      ],
+    },
+  }
 }
