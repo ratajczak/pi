@@ -6,9 +6,8 @@ forge "http://forge.puppetlabs.com"
 # use dependencies defined in Modulefile
 modulefile
 
-#mod 'adrien/network', '0.4.1'
-
 mod 'attachmentgenie/network', '1.0.1'
+mod 'thias/samba', '0.1.4'
 
 # mod 'puppetlabs/stdlib'
 
