@@ -40,7 +40,9 @@ node raspberrypi {
   }
 
   package { 'minidlna':
-    ensure => 'latest'
+    ensure => 'latest',
+    # Install samba before minidlna, otherwise samba installation fails.
+    require => Package['samba'], 
   }
 
   service { 'minidlna':
