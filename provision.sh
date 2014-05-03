@@ -3,11 +3,11 @@ set -e
 
 PUPPET_DIR='/home/pi/puppet'
 
-#sudo apt-get update
-#sudo apt-get install git
-#sudo apt-get install puppet-common
-#sudo apt-get install ruby-dev
-#sudo gem install librarian-puppet
+sudo apt-get update
+sudo apt-get install git
+sudo apt-get install puppet-common
+sudo apt-get install ruby-dev
+sudo gem install librarian-puppet
 
 git clone http://github.com/ratajczak/pi.git ${PUPPET_DIR}
 
